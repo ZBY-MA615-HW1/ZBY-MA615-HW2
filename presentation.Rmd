@@ -1,0 +1,39 @@
+---
+title: "presentation"
+author: "Zhagbiyao"
+date: "10/8/2021"
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,eval=TRUE,highlight=FALSE,warning=FALSE,message = FALSE)
+```
+
+## story
+
+This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see
+
+##outward-facing 
+
+```{r}
+source("Wrangling_code.R",echo=F)
+source("Visualization_function.R",echo=F)
+options (warn = -1)
+library(printr)
+Afghanistan_tax_inflation %>% head()
+filter(Afghanistan_tax_inflation,tax>0,inflation>0)
+filter(Afghanistan_tax_inflation,!is.na(tax),!is.na(inflation)) %>% head()
+
+tax
+```
+
+##Visualization
+
+```{r}
+p1<-vf(input=Afghanistan_tax_inflation,x_tax=Afghanistan_tax_inflation$tax,y_inflation=Afghanistan_tax_inflation$inflation)
+p1
+```
+
+##summary
