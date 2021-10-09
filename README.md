@@ -1,2 +1,2 @@
 # ZBY-MA615-HW2
-# ??????????????????????????????????????
+# I choose two indicators: tax and inflation. After wrangling these two data files into one tibble, I compare the inflation and tax data of 150 countries and selected the two most representative countries:Afghanistan and Australia.Australia belongs to Oceania, while Afghanistan belongs to Asia. The different geographical locations and climates of the two countries have led to different economic industries. The different monetary and tax policies of the two countries have led to different inflation rates.
