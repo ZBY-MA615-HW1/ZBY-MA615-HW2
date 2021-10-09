@@ -1,5 +1,5 @@
 ---
-title: "presentation"
+title: "presentation_the relationship between tax and inflation"
 author: "Zhagbiyao"
 date: "10/8/2021"
 output:
@@ -11,29 +11,41 @@ output:
 knitr::opts_chunk$set(echo = FALSE,eval=TRUE,highlight=FALSE,warning=FALSE,message = FALSE)
 ```
 
-## story
+## abstract
 
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see
+I choose two indicators: tax and inflation. After wrangling these two data files into one tibble, I compare the inflation and tax data of 150 countries and selected the two most representative countries:Afghanistan and Australia.Australia belongs to Oceania, while Afghanistan belongs to Asia. The different geographical locations and climates of the two countries have led to different economic industries. The different monetary and tax policies of the two countries have led to different inflation rates.
 
 ##outward-facing 
 
 ```{r}
-source("Wrangling_code.R",echo=F)
-source("Visualization_function.R",echo=F)
-options (warn = -1)
+source("Wrangling_code.R",echo=F) #import Wrangling_code.R file
+source("Visualization_function.R",echo=F) #import Visualization_function.R file
 library(printr)
-Afghanistan_tax_inflation %>% head()
-filter(Afghanistan_tax_inflation,tax>0,inflation>0)
+#Afghanistan_tax_inflation %>% head() #display the tax and inflation data of Afghanistan
 filter(Afghanistan_tax_inflation,!is.na(tax),!is.na(inflation)) %>% head()
 
-tax
+#Australia_tax_inflation %>% head()   #display the tax and inflation data of Australia
+filter(Australia_tax_inflation,!is.na(tax),!is.na(inflation)) %>% head()
+
 ```
 
 ##Visualization
 
 ```{r}
-p1<-vf(input=Afghanistan_tax_inflation,x_tax=Afghanistan_tax_inflation$tax,y_inflation=Afghanistan_tax_inflation$inflation)
+p1<-vf(input=Afghanistan_tax_inflation,x_tax=Afghanistan_tax_inflation$tax,y_inflation=Afghanistan_tax_inflation$inflation) #transfer the functionn file to display the picture of Afghanistan
+p1<-p1+labs(title = "Afghanistan")
 p1
+
+p2<-vf(input=Australia_tax_inflation,x_tax=Australia_tax_inflation$tax,y_inflation=Australia_tax_inflation$inflation) #transfer the functionn file to display the picture of Australia
+p2<-p2+labs(title = "Australia")
+p2
 ```
 
-##summary
+##Analysis
+
+From the figure, we can see that taxation in Australia is increasing year by year, and inflation fluctuates greatly, and Inflation first increases and then decreases, with a period of roughly 10 years. And Afghanistan lacks a lot of tax data and inflation data. I guess this has something to do with the unstable social environment. Especially from 1971 to 2000, Afghanistan was in a war-torn environment all the year round, and the country did not have stable taxation. The chaotic economic and social environment makes it impossible to collect accurate inflation data.
+
+##Summary
+
+From the above analysis, we get that a stable social and economic environment has a huge impact on national fiscal revenue. Australia's national fiscal revenue continues to rise, and inflation is cyclical. Afghanistan has been in war throughout the year, the country has no stable taxation, and inflation has no cyclical changes.
+
